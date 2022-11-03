@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
                 'name'=>'Jony',
                 'email'=>"jojo4@gmail.com",
                 'password'=>Hash::make('jojo4@gmail.com'),
-                'role_id'=> 3
+                'role_id'=> 4
             ],
         ]);
     }

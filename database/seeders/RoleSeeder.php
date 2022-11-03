@@ -20,6 +20,9 @@ class RoleSeeder extends Seeder
                 "role" => "Admin"
             ],
             [
+                "role"=>"Webmaster"
+            ],
+            [
                 "role" => "Modérator"
             ],
             [
