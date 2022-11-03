@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,11 +19,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/articles', function(){
-    return view('pages.articles');
+    $articles=Article::all();
+    return view('pages.articles',compact('articles'));
 })->middleware(['isConnected'])->name('articles');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['isConnected','isAdmin'])->name('dashboard');
+
+Route::resource('articlesCRUD', ArticleController::class, [
+    'names' => [
+        'index' => 'articlesCRUD'
+        ]
+    ]);
 
 require __DIR__.'/auth.php';

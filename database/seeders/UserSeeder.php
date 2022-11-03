@@ -29,6 +29,18 @@ class UserSeeder extends Seeder
                 'password'=>Hash::make('jojo2@gmail.com'),
                 'role_id'=> 3
             ],
+            [
+                'name'=>'Jojojo',
+                'email'=>"jojo3@gmail.com",
+                'password'=>Hash::make('jojo3@gmail.com'),
+                'role_id'=> 2
+            ],
+            [
+                'name'=>'Jony',
+                'email'=>"jojo4@gmail.com",
+                'password'=>Hash::make('jojo4@gmail.com'),
+                'role_id'=> 3
+            ],
         ]);
     }
 }
