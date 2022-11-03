@@ -26,13 +26,13 @@ Route::get('/articles', function(){
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['RoleVerification:1,2'])->name('dashboard');
+})->middleware(['RoleVerification:1,2,3'])->name('dashboard');
 
 Route::resource('articlesCRUD', ArticleController::class, [
     'names' => [
         'index' => 'articlesCRUD'
         ]
-    ])->middleware(['RoleVerification:1,2']);
+    ])->middleware(['RoleVerification:1,2,3']);
 
 Route::get('users', function(){
     $users=User::all();
