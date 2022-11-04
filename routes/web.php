@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UserController;
 use App\Models\Article;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -34,9 +35,8 @@ Route::resource('articlesCRUD', ArticleController::class, [
         ]
     ])->middleware(['RoleVerification:1,2,3']);
 
-Route::get('users', function(){
-    $users=User::all();
-    return view('pages.back.users',compact('users'));
-})->middleware(['RoleVerification:1'])->name('users');
-
+Route::get('users', [UserController::class, 'index'])->middleware(['RoleVerification:1'])->name('users');
+Route::get('/user/{id}/edit', [UserController::class, 'edit']);
+Route::put('/user/{id}', [UserController::class, 'update']);
+Route::delete('/user/{id}', [UserController::class, 'destroy']);
 require __DIR__.'/auth.php';

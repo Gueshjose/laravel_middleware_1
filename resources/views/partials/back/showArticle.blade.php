@@ -8,7 +8,7 @@
         <a href="/articlesCRUD/{{ $article->id }}/edit"><button
                 class="bg-yellow-600 border-2 border-white shadow-sm shadow-black text-[1vw] p-2 rounded-md text-white font-semibold ">
                 EDIT</button></a>
-        @can('check-user', $article->user_id)
+        @can('check-user',[ $article->user_id, 3])
             <form action="/articlesCRUD/{{ $article->id }}" method="post">
                 @csrf
                 @method('DELETE')

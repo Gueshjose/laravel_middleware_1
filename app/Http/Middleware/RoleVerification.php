@@ -17,7 +17,6 @@ class RoleVerification
      */
     public function handle(Request $request, Closure $next, ...$rolesId)
     {
-
         if(Auth::check()){
             foreach($rolesId as $roleId){            
                 if(Auth::user()->id == $roleId ){
