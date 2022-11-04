@@ -26,13 +26,19 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('check-user',function($user,$id, $roleId){
+        Gate::define('check-user',function($user,$id, $roleId)
+        {
             return ($user->role_id != $roleId || $user->id == $id);
         });
 
-        Gate::define('admin-user',function($user,$id, $roleId){
-    
-            return ($user->role_id != $roleId && $user->id != $id);
+        Gate::define('admin-user',function($user,$roleId)
+        {    
+            $request = resolve(\Illuminate\Http\Request::class);
+            if($user->role_id === 1){
+                return ($user->role_id != $roleId || $request->path()=='/user/{id}/edit');
+            }else{
+                return ($roleId !== 1 && $roleId !== 2 );
+            }
         });
     }
 }

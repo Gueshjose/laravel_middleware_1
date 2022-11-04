@@ -35,7 +35,7 @@ Route::resource('articlesCRUD', ArticleController::class, [
         ]
     ])->middleware(['RoleVerification:1,2,3']);
 
-Route::get('users', [UserController::class, 'index'])->middleware(['RoleVerification:1'])->name('users');
+Route::get('users', [UserController::class, 'index'])->name('users');
 Route::get('/user/{id}/edit', [UserController::class, 'edit']);
 Route::put('/user/{id}', [UserController::class, 'update']);
 Route::delete('/user/{id}', [UserController::class, 'destroy']);

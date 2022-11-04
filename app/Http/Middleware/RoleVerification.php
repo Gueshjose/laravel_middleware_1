@@ -19,7 +19,7 @@ class RoleVerification
     {
         if(Auth::check()){
             foreach($rolesId as $roleId){            
-                if(Auth::user()->id == $roleId ){
+                if(Auth::user()->role_id == $roleId ){
                     return $next($request);
                 }
             }
