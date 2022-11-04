@@ -17,7 +17,7 @@
             <div class="col-span-3">
                 <x-input-label for="text" :value="__('Texte')" />
 
-                <textarea id="name" class="block mt-1 w-full" type="text" name="text" placeholder="le text" required autofocus >
+                <textarea id="name" class="block mt-1 w-full " type="text" name="text" placeholder="le text" required autofocus >
                     {{old("text")}}
                 </textarea>
 
